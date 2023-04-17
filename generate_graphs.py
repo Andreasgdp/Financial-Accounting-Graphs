@@ -24,10 +24,14 @@ import matplotlib.ticker as ticker
 import numpy as np
 
 
-def get_largest_transactions(amounts, descriptions, dates, n=3):
+def get_largest_transactions(
+    amounts, descriptions, dates, amount_of_transactions_to_extract=3
+):
     """Returns the n largest transactions"""
     # Get the indices of the largest transactions
-    indices = np.argpartition(amounts, -n)[-n:]
+    indices = np.argpartition(amounts, -amount_of_transactions_to_extract)[
+        -amount_of_transactions_to_extract:
+    ]
 
     # Get the largest transactions
     largest_transactions = [(amounts[i], descriptions[i], dates[i]) for i in indices]

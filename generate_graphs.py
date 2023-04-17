@@ -115,6 +115,9 @@ def generate_graphs(csv_file):
 
         # Show the grid
         ax.grid(True)
+        # Show the plot in maximized window
+        fig_manager = plt.get_current_fig_manager()
+        fig_manager.window.showMaximized()
         # Show the plot
         plt.show()
 
